@@ -1,6 +1,6 @@
 services:
   php:
-    image: php:8.1-apache
+    build: .
     container_name: php_container
     volumes:
       - ./:/var/www/html
@@ -16,6 +16,6 @@ services:
       MYSQL_ROOT_PASSWORD: 123qwe
       MYSQL_DATABASE: biblioteca
     volumes:
-      - ./script.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
